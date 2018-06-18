@@ -1,14 +1,15 @@
 //
-//  testTests.swift
-//  testTests
+//  travisTestTests.swift
+//  travisTestTests
 //
-//  Created by Álvaro Romero on 13/6/18.
-//  Copyright © 2018 Álvaro Romero. All rights reserved.
+//  Created by Álvaro on 18/6/18.
+//  Copyright © 2018 Álvaro. All rights reserved.
 //
 
 import XCTest
+@testable import travisTest
 
-class testTests: XCTestCase {
+class travisTestTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
