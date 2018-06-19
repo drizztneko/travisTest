@@ -5,7 +5,7 @@ if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
 	exit $?
 fi
 
-if [[ $TRAVIS_BRANCH != 'master' ]]; then
+if [[ $TRAVIS_BRANCH == 'master' ]]; then
 	fastlane beta
 	exit $?
 fi
