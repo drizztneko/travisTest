@@ -21,15 +21,15 @@ platform :ios do
     scan(device: "iPhone 7 (11.2)")
   end
 
-  desc "Download and refresh profiles"
-  lane :selfmatch do
-    match(type: "development", app_identifier: "com.pilasvacias.test", force_for_new_devices: true)
-    match(type: "appstore", app_identifier: "com.pilasvacias.test")
-  end
+  #desc "Download and refresh profiles"
+  #lane :match do
+  #  match(type: "development", app_identifier: "com.pilasvacias.test", force_for_new_devices: true)
+  #  match(type: "appstore", app_identifier: "com.pilasvacias.test")
+  #end
 
   desc "Upload a beta"
   lane :beta do
-  	#match(type: "appstore", readonly: true)
+  	match(type: "appstore", readonly: true)
   	build_app(scheme: "test")
   	upload_to_testflight
   end
