@@ -11,18 +11,14 @@
 #
 
 # Uncomment the line if you want fastlane to automatically update itself
-update_fastlane
+# update_fastlane
 
 default_platform(:ios)
 
 platform :ios do
-  before_all do 
-    test
-  end
-
   desc "Run all the tests"
   lane :test do
-    scan(device: "iPhone 7 (11.2)")
+    scan(device: "iPhone X (11.4)")
   end
 
   #desc "Download and refresh profiles"
@@ -33,9 +29,23 @@ platform :ios do
 
   desc "Upload a beta"
   lane :beta do
-  	match(type: "appstore", readonly: true)
-    increment_build_number(build_number: number_of_commits)
-  	build_app(scheme: "test")
-  	upload_to_testflight
+
+    setup_travis
+  	#match(type: "appstore", readonly: true)
+    sync_code_signing(type: "appstore")
+
+    #increment_build_number(build_number: number_of_commits)
+    
+    build_app
+    #build_app(scheme: "travisTest")
+    #gym(
+    #  configuration: "Release",
+    #  sdk: "iPhoneOS11.3",
+    #  clean: true,
+    #  include_bitcode: true,
+    #  include_symbols: true,
+    #  export_method: "app-store"
+    #)
+    upload_to_testflight(skip_waiting_for_build_processing: true)
   end
 end

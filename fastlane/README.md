@@ -21,11 +21,6 @@ or alternatively using `brew cask install fastlane`
 fastlane ios test
 ```
 Run all the tests
-### ios match
-```
-fastlane ios match
-```
-Download and refresh profiles
 ### ios beta
 ```
 fastlane ios beta
