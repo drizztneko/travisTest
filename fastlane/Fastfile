@@ -11,7 +11,7 @@
 #
 
 # Uncomment the line if you want fastlane to automatically update itself
-update_fastlane
+# update_fastlane
 
 default_platform(:ios)
 
@@ -31,7 +31,7 @@ platform :ios do
   lane :beta do
   	match(type: "appstore", readonly: true)
     increment_build_number(build_number: number_of_commits)
-  	build_app(scheme: "test")
+  	build_app(scheme: "travisTest")
   	upload_to_testflight
   end
 end
