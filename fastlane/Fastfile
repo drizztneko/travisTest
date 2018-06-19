@@ -18,7 +18,7 @@ default_platform(:ios)
 platform :ios do
   desc "Run all the tests"
   lane :test do
-    scan(device: "iPhone 7 (11.2)")
+    scan(device: "iPhone X (11.4)")
   end
 
   #desc "Download and refresh profiles"
@@ -31,7 +31,7 @@ platform :ios do
   lane :beta do
   	#match(type: "appstore", readonly: true)
     sync_code_signing(type: "appstore")
-    
+
     increment_build_number(build_number: number_of_commits)
     
     build_app
