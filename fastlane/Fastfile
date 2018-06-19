@@ -30,8 +30,19 @@ platform :ios do
   desc "Upload a beta"
   lane :beta do
   	match(type: "appstore", readonly: true)
+    
     increment_build_number(build_number: number_of_commits)
-  	build_app(scheme: "travisTest")
-  	upload_to_testflight
+    
+    build_app
+    #build_app(scheme: "travisTest")
+    #gym(
+    #  configuration: "Release",
+    #  sdk: "iOS 11.2",
+    #  clean: true,
+    #  include_bitcode: true,
+    #  include_symbols: true,
+    #  export_method: "app-store"
+    #)
+    upload_to_testflight(skip_waiting_for_build_processing: true)
   end
 end
