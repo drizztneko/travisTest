@@ -1,0 +1,6 @@
+framework module Pods_travisTestUITests {
+  umbrella header "Pods-travisTestUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
