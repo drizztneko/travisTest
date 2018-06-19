@@ -22,7 +22,7 @@ platform :ios do
   end
 
   desc "Download and refresh profiles"
-  lane :match do
+  lane :selfmatch do
     match(type: "development", app_identifier: "com.pilasvacias.test", force_for_new_devices: true)
     match(type: "appstore", app_identifier: "com.pilasvacias.test")
   end
