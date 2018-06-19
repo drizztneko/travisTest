@@ -16,6 +16,10 @@ update_fastlane
 default_platform(:ios)
 
 platform :ios do
+  before_all do 
+    test
+  end
+
   desc "Run all the tests"
   lane :test do
     scan(device: "iPhone 7 (11.2)")
@@ -30,6 +34,7 @@ platform :ios do
   desc "Upload a beta"
   lane :beta do
   	match(type: "appstore", readonly: true)
+    increment_build_number(build_number: number_of_commits)
   	build_app(scheme: "test")
   	upload_to_testflight
   end
