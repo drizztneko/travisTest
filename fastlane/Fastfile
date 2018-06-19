@@ -29,6 +29,8 @@ platform :ios do
 
   desc "Upload a beta"
   lane :beta do
+
+    setup_travis
   	#match(type: "appstore", readonly: true)
     sync_code_signing(type: "appstore")
 
