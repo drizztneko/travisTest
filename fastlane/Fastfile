@@ -16,8 +16,26 @@ update_fastlane
 default_platform(:ios)
 
 platform :ios do
+  before_all do 
+    test
+  end
+
   desc "Run all the tests"
   lane :test do
     scan(device: "iPhone 7 (11.2)")
+  end
+
+  #desc "Download and refresh profiles"
+  #lane :match do
+  #  match(type: "development", app_identifier: "com.pilasvacias.test", force_for_new_devices: true)
+  #  match(type: "appstore", app_identifier: "com.pilasvacias.test")
+  #end
+
+  desc "Upload a beta"
+  lane :beta do
+  	match(type: "appstore", readonly: true)
+    increment_build_number(build_number: number_of_commits)
+  	build_app(scheme: "test")
+  	upload_to_testflight
   end
 end
