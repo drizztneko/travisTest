@@ -37,7 +37,7 @@ platform :ios do
     #build_app(scheme: "travisTest")
     gym(
       configuration: "Release",
-      sdk: "iPhoneOS11.3",
+      #sdk: "iPhoneOS11.3",
       clean: true,
       include_bitcode: true,
       include_symbols: true,
